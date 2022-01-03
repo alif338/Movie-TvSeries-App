@@ -16,6 +16,7 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
     with RouteAware {
   @override
   void initState() {
+    print("Init State MOVIE PAGE");
     super.initState();
     Future.microtask(() =>
         Provider.of<WatchlistMovieNotifier>(context, listen: false)
@@ -24,10 +25,12 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
 
   @override
   void didChangeDependencies() {
+    print("Change Dependency MOVIE PAGE");
     super.didChangeDependencies();
     routeObserver.subscribe(this, ModalRoute.of(context)!);
   }
 
+  @override
   void didPopNext() {
     Provider.of<WatchlistMovieNotifier>(context, listen: false)
         .fetchWatchlistMovies();
@@ -66,6 +69,7 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
 
   @override
   void dispose() {
+    print("UNSUBSCRIbe MOVIE PAGE");
     routeObserver.unsubscribe(this);
     super.dispose();
   }

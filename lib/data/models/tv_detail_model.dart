@@ -46,7 +46,7 @@ class TvDetailResponse extends Equatable {
           originalName: json["original_name"],
           overview: json["overview"],
           popularity: json["popularity"].toDouble(),
-          posterPath: json["poster_path"],
+          posterPath: json["poster_path"] ?? '',
           status: json["status"],
           tagline: json["tagline"],
           name: json["name"],
