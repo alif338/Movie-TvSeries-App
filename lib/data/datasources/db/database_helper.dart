@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:ditonton/data/models/movie_table.dart';
 import 'package:ditonton/data/models/tv_table.dart';
-import 'package:ditonton/domain/usecases/get_watchlist_tvs.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DatabaseHelper {

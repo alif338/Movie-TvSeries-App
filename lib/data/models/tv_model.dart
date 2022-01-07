@@ -22,7 +22,7 @@ class TvModel extends Equatable {
   final String originalName;
   final String overview;
   final double popularity;
-  final String posterPath;
+  final String? posterPath;
   final String? releaseDate;
   final String name;
   final double voteAverage;
@@ -35,7 +35,7 @@ class TvModel extends Equatable {
     originalName: json["original_name"], 
     overview: json["overview"], 
     popularity: json["popularity"].toDouble(), 
-    posterPath: json["poster_path"] ?? "", 
+    posterPath: json["poster_path"], 
     releaseDate: json["release_date"], 
     name: json["name"], 
     voteAverage: json["vote_average"].toDouble(), 
