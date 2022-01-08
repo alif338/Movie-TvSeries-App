@@ -111,8 +111,8 @@ final testTvTable = TvTable(
   );
 
 final testTvMap = {
-  'id': 1,
-  'overview': 'overview',
-  'posterPath': 'posterPath',
-  'name': 'name'
+  'id': 1399,
+  'overview': "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
+  'posterPath': "/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
+  'name': "Game of Thrones"
 };

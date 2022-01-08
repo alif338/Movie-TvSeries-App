@@ -24,7 +24,7 @@ void main() {
       //act
       final result = await dataSource.insertWatchlist(testTvTable);
       // assert
-      expect(result, 1);
+      expect(result, 'Added to Watchlist');
     });
 
     test('should throw error message when insert to database is failed',
@@ -48,7 +48,7 @@ void main() {
       // act
       final result = await dataSource.removeWatchlist(testTvTable);
       // assert
-      expect(result, 'Removed from watchlist');
+      expect(result, 'Removed from Watchlist');
     });
     test('should throw exception message when remove from database is failed',
         () async {
