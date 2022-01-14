@@ -210,7 +210,7 @@ void main() {
     expect(find.byIcon(Icons.add), findsOneWidget);
     expect(find.byType(AlertDialog), findsNothing);
     expect(find.text('Failed'), findsNothing);
-    await tester.tap(watchlistButton,warnIfMissed: false);
+    await tester.tap(watchlistButton, warnIfMissed: false);
     await tester.pump();
 
     expect(find.byType(AlertDialog), findsOneWidget);

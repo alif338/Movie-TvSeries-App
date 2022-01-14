@@ -1,4 +1,4 @@
-name: Flutter CI
+name: ditonton app CI status
 on:
   push:
     branches:
