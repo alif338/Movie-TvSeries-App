@@ -39,6 +39,8 @@ dependencies:
   sqflite: ^2.0.0+3
   path_provider: ^2.0.2
   flutter_bloc: ^8.0.1
+  firebase_core: ^1.11.0
+  firebase_crashlytics: ^2.4.5
   about:
     path: about
   core:

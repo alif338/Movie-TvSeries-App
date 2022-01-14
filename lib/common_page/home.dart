@@ -2,12 +2,13 @@ import 'package:about/about.dart';
 import 'package:core/core.dart';
 import 'package:ditonton/common_page/search_page.dart';
 import 'package:ditonton/common_page/watchlist_page.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/movies.dart';
 import 'package:tv_series/tv_series.dart';
 
 class Home extends StatefulWidget {
-  const Home({ Key? key }) : super(key: key);
+  const Home({Key? key}) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
@@ -15,20 +16,13 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _bottomNavIndex = 0;
-  List<Widget> _pagesWidget = [
-    HomeMoviePage(),
-    HomeTvPage()
-  ];
+  List<Widget> _pagesWidget = [HomeMoviePage(), HomeTvPage()];
   List<BottomNavigationBarItem> _navItem = [
     BottomNavigationBarItem(
-      icon: Icon(Icons.movie_creation_outlined),
-      activeIcon: Icon(Icons.movie),
-      label: "Movie"
-    ),
-    BottomNavigationBarItem(
-      icon: Icon(Icons.tv_outlined),
-      label: "Tv Series"
-    ),
+        icon: Icon(Icons.movie_creation_outlined),
+        activeIcon: Icon(Icons.movie),
+        label: "Movie"),
+    BottomNavigationBarItem(icon: Icon(Icons.tv_outlined), label: "Tv Series"),
   ];
 
   @override
@@ -48,6 +42,8 @@ class _HomeState extends State<Home> {
               leading: Icon(Icons.movie),
               title: Text('Movies'),
               onTap: () {
+                // FirebaseCrashlytics.instance.crash();
+                // print("CRASSHH");
                 Navigator.pop(context);
               },
             ),

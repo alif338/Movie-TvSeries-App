@@ -23,6 +23,8 @@ dependencies:
   path_provider: ^2.0.2
   flutter_bloc: ^8.0.0
   rxdart: ^0.27.1
+  firebase_core: ^1.11.0
+  firebase_crashlytics: ^2.4.5
   core:
     path: ../core
 
