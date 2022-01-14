@@ -13,8 +13,6 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: "12.x"
-        with:
-          channel: "stable"
       - run: flutter pub get
       - run: cd movies && flutter test
       - run: cd ../tv_series && flutter test
