@@ -1,3 +1,4 @@
+import 'package:core/core.dart';
 import 'package:mockito/annotations.dart';
 import 'package:http/http.dart' as http;
 import 'package:movies/movies.dart';
@@ -8,6 +9,7 @@ import 'package:movies/movies.dart';
   MovieLocalDataSource,
   DatabaseHelper,
 ], customMocks: [
-  MockSpec<http.Client>(as: #MockHttpClient)
+  MockSpec<http.Client>(as: #MockHttpClient),
+  MockSpec<ApiIOClient>(as: #MockApiIOClient)
 ])
 void main() {}

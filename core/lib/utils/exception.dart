@@ -5,3 +5,9 @@ class DatabaseException implements Exception {
 
   DatabaseException(this.message);
 }
+
+class HandShakeException implements Exception {
+  final String message;
+
+  HandShakeException(this.message);
+}

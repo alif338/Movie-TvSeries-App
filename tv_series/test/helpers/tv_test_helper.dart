@@ -1,3 +1,4 @@
+import 'package:core/core.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/annotations.dart';
 import 'package:tv_series/data/datasources/db/database_helper.dart';
@@ -11,6 +12,7 @@ import 'package:tv_series/domain/repositories/tv_repository.dart';
   TvLocalDataSource,
   TvDatabaseHelper,
 ], customMocks: [
-  MockSpec<http.Client>(as: #MockHttpClient)
+  MockSpec<http.Client>(as: #MockHttpClient),
+  MockSpec<ApiIOClient>(as: #MockApiIOClient)
 ])
 void main() {}

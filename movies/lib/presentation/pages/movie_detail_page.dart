@@ -35,7 +35,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
     context
         .read<MovieRecommendationsBloc>()
         .add(OnFetchMovieRecommendations(widget.id));
-    BlocProvider.of<WatchlistStatusBloc>(context, listen: false)
+    context.read<WatchlistStatusBloc>()
         .add(OnLoadWatclistStatus(widget.id));
     print("Call Initstate");
   }
@@ -147,12 +147,8 @@ class DetailContent extends StatelessWidget {
                                       if (!isAddedToWatchlist) {
                                         context.read<WatchlistStatusBloc>()
                                             .add(OnAddToWatchlist(movie));
-                                        // context.read<WatchlistStatusBloc>().add(OnLoadWatclistStatus(movie.id));
                                       } else {
-                                        BlocProvider.of<WatchlistStatusBloc>(
-                                                context)
-                                            .add(OnRemoveFromWatchlist(movie));
-                                        // context.read<WatchlistStatusBloc>().add(OnLoadWatclistStatus(movie.id));
+                                        context.read<WatchlistStatusBloc>().add(OnRemoveFromWatchlist(movie));
                                       }
                                     },
                                     child: Row(

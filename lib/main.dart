@@ -28,7 +28,8 @@ import 'package:tv_series/presentation/bloc/tv_list/tv_airing_today/tv_airing_to
 import 'package:tv_series/presentation/bloc/watchlist_tvs/watchlist_tvs_bloc.dart';
 import 'package:tv_series/tv_series.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   di.init();
   runApp(MyApp());
 }
@@ -44,12 +45,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (_) => di.locator<MovieDetailBloc>(),
         ),
-        BlocProvider(
-          create: (_) => di.locator<MovieRecommendationsBloc>()
-        ),
-        BlocProvider(
-          create: (_) => di.locator<WatchlistBloc>()
-        ),
+        BlocProvider(create: (_) => di.locator<MovieRecommendationsBloc>()),
+        BlocProvider(create: (_) => di.locator<WatchlistBloc>()),
         BlocProvider(
           create: (_) => di.locator<SearchBloc>(),
         ),
@@ -63,30 +60,14 @@ class MyApp extends StatelessWidget {
           create: (_) => di.locator<WatchlistStatusBloc>(),
         ),
         // TV Series
-        BlocProvider(
-          create: (_) => di.locator<TvAiringTodayBloc>()
-        ),
-        BlocProvider(
-          create: (_) => di.locator<TvRecommendationsBloc>()
-        ),
-        BlocProvider(
-          create: (_) => di.locator<TvDetailBloc>()
-        ),
-        BlocProvider(
-          create: (_) => di.locator<SearchTvsBloc>()
-        ),
-        BlocProvider(
-          create: (_) => di.locator<TopRatedTvsBloc>()
-        ),
-        BlocProvider(
-          create: (_) => di.locator<PopularTvsBloc>()
-        ),
-        BlocProvider(
-          create: (_) => di.locator<WatchlistTvsBloc>()
-        ),
-        BlocProvider(
-          create: (_) => di.locator<TvWatchlistStatusBloc>()
-        )
+        BlocProvider(create: (_) => di.locator<TvAiringTodayBloc>()),
+        BlocProvider(create: (_) => di.locator<TvRecommendationsBloc>()),
+        BlocProvider(create: (_) => di.locator<TvDetailBloc>()),
+        BlocProvider(create: (_) => di.locator<SearchTvsBloc>()),
+        BlocProvider(create: (_) => di.locator<TopRatedTvsBloc>()),
+        BlocProvider(create: (_) => di.locator<PopularTvsBloc>()),
+        BlocProvider(create: (_) => di.locator<WatchlistTvsBloc>()),
+        BlocProvider(create: (_) => di.locator<TvWatchlistStatusBloc>())
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
@@ -115,9 +96,8 @@ class MyApp extends StatelessWidget {
               );
             case TV_DETAIL_ROUTE:
               final id = settings.arguments as int;
-              return MaterialPageRoute(builder: (_) => TvDetailPage(id: id),
-              settings: settings
-            );
+              return MaterialPageRoute(
+                  builder: (_) => TvDetailPage(id: id), settings: settings);
             case SEARCH_ROUTE:
               return CupertinoPageRoute(builder: (_) => SearchPage());
             case WATCHLIST_ROUTE:

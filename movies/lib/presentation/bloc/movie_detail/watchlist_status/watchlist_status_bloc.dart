@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:movies/domain/entities/movie_detail.dart';
 import 'package:movies/domain/usecases/get_watchlist_status.dart';
 import 'package:movies/domain/usecases/remove_watchlist.dart';
@@ -24,26 +23,28 @@ class WatchlistStatusBloc
     on<OnAddToWatchlist>((event, emit) async {
       final result = await saveWatchlist.execute(event.movieDetail);
       String msg = '';
-      bool status = state.status;
+      // bool status = state.status;
       result.fold((failure) {
         msg = failure.message;
       }, (success) async {
         msg = watchlistAddSuccessMessage;
-        status = await getWatchlistStatus.execute(event.movieDetail.id);
+        // status = await getWatchlistStatus.execute(event.movieDetail.id);
       });
+      final status = await getWatchlistStatus.execute(event.movieDetail.id);
       emit(WatchlistStatusState(status, msg));
     });
 
     on<OnRemoveFromWatchlist>((event, emit) async {
       final result = await removeWatchlist.execute(event.movieDetail);
       String msg = '';
-      bool status = state.status;
+      // bool status = state.status;
       result.fold((failure) {
         msg = failure.message;
       }, (success) async {
         msg = watchlistRemoveSuccessMessage;
-        status = await getWatchlistStatus.execute(event.movieDetail.id);
+        // status = await getWatchlistStatus.execute(event.movieDetail.id);
       });
+      final status = await getWatchlistStatus.execute(event.movieDetail.id);
       emit(WatchlistStatusState(status, msg));
     });
 
