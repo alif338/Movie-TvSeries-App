@@ -18,4 +18,4 @@ jobs:
           channel: "stable"
       - run: flutter pub get
       - run: cd movies && flutter test
-      - run: cd ../tv_series && flutter test
+      - run: cd tv_series && flutter test
