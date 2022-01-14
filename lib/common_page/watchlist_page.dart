@@ -2,7 +2,9 @@ import 'package:core/core.dart';
 import 'package:ditonton/common/utils.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/movies.dart';
+import 'package:movies/presentation/bloc/watchlist_movie/watchlist_bloc.dart';
 import 'package:provider/provider.dart';
+import 'package:tv_series/presentation/bloc/watchlist_tvs/watchlist_tvs_bloc.dart';
 import 'package:tv_series/tv_series.dart';
 
 class WatchlistPage extends StatefulWidget {
@@ -18,12 +20,11 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.microtask(() =>
-        Provider.of<WatchlistMovieNotifier>(context, listen: false)
-            .fetchWatchlistMovies());
-    Future.microtask(() =>
-        Provider.of<WatchlistTvNotifier>(context, listen: false)
-            .fetchWatchlistTvs());
+    // Future.microtask(() =>
+    //     Provider.of<WatchlistMovieNotifier>(context, listen: false)
+    //         .fetchWatchlistMovies());
+    context.read<WatchlistBloc>().add(OnFetchWatchlistMovie());
+    context.read<WatchlistTvsBloc>().add(OnFetchWatchlistTvs());
   }
 
   @override
@@ -37,10 +38,10 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
   void didPopNext() {
     // TODO: implement didPopNext
     super.didPopNext();
-    Provider.of<WatchlistTvNotifier>(context, listen: false)
-        .fetchWatchlistTvs();
-    Provider.of<WatchlistMovieNotifier>(context, listen: false)
-        .fetchWatchlistMovies();
+    context.read<WatchlistTvsBloc>().add(OnFetchWatchlistTvs());
+    // Provider.of<WatchlistMovieNotifier>(context, listen: false)
+    //     .fetchWatchlistMovies();
+    context.read<WatchlistBloc>().add(OnFetchWatchlistMovie());
   }
 
   @override

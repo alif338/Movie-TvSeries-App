@@ -6,9 +6,26 @@ import 'package:ditonton/common_page/search_page.dart';
 import 'package:ditonton/common_page/watchlist_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/movies.dart';
+import 'package:movies/presentation/bloc/movie_detail/movie_recommendations/movie_recommendations_bloc.dart';
+import 'package:movies/presentation/bloc/movie_detail/watchlist_status/watchlist_status_bloc.dart';
+import 'package:movies/presentation/bloc/search_movie/search_bloc.dart';
+import 'package:movies/presentation/bloc/watchlist_movie/watchlist_bloc.dart';
+import 'package:movies/presentation/bloc/movie_detail/movie_detail_bloc.dart';
+import 'package:movies/presentation/bloc/movie_list/now_playing_list/now_playing_list_bloc.dart';
+import 'package:movies/presentation/bloc/movie_list/popular_list/popular_list_bloc.dart';
+import 'package:movies/presentation/bloc/movie_list/top_rated_list/top_rated_list_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:ditonton/injection.dart' as di;
+import 'package:tv_series/presentation/bloc/search_tvs/search_tvs_bloc.dart';
+import 'package:tv_series/presentation/bloc/tv_detail/tv_detail_bloc.dart';
+import 'package:tv_series/presentation/bloc/tv_detail/tv_recommendations/tv_recommendations_bloc.dart';
+import 'package:tv_series/presentation/bloc/tv_detail/tv_watchlist_status/tv_watchlist_status_bloc.dart';
+import 'package:tv_series/presentation/bloc/tv_list/popular_tvs/popular_tvs_bloc.dart';
+import 'package:tv_series/presentation/bloc/tv_list/top_rated_tvs/top_rated_tvs_bloc.dart';
+import 'package:tv_series/presentation/bloc/tv_list/tv_airing_today/tv_airing_today_bloc.dart';
+import 'package:tv_series/presentation/bloc/watchlist_tvs/watchlist_tvs_bloc.dart';
 import 'package:tv_series/tv_series.dart';
 
 void main() {
@@ -21,42 +38,54 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieListNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<NowPlayingListBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieDetailNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<MovieDetailBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieSearchNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<MovieRecommendationsBloc>()
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TopRatedMoviesNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<WatchlistBloc>()
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<PopularMoviesNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<SearchBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<WatchlistMovieNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<TopRatedListBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<PopularListBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<WatchlistStatusBloc>(),
         ),
         // TV Series
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TvListNotifier>()
+        BlocProvider(
+          create: (_) => di.locator<TvAiringTodayBloc>()
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TvDetailNotifier>()
+        BlocProvider(
+          create: (_) => di.locator<TvRecommendationsBloc>()
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TvSearchNotifier>()
+        BlocProvider(
+          create: (_) => di.locator<TvDetailBloc>()
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<TopRatedTvNotifier>()
+        BlocProvider(
+          create: (_) => di.locator<SearchTvsBloc>()
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<PopularTvNotifier>()
+        BlocProvider(
+          create: (_) => di.locator<TopRatedTvsBloc>()
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<WatchlistTvNotifier>()
+        BlocProvider(
+          create: (_) => di.locator<PopularTvsBloc>()
+        ),
+        BlocProvider(
+          create: (_) => di.locator<WatchlistTvsBloc>()
+        ),
+        BlocProvider(
+          create: (_) => di.locator<TvWatchlistStatusBloc>()
         )
       ],
       child: MaterialApp(
