@@ -1,3 +1,3 @@
 # a199-flutter-expert-project
 
-[![Codemagic build status](https://api.codemagic.io/apps/61dbccbc344ed847645aa054/61dbccbc344ed847645aa053/status_badge.svg)](https://codemagic.io/apps/61dbccbc344ed847645aa054/61dbccbc344ed847645aa053/latest_build)
+![example workflow](https://github.com/alif338/flutter-expert-submission-alif/actions/workflows/flutter_ci.yml/badge.svg)
