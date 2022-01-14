@@ -187,7 +187,7 @@ void main() {
         bloc.add(OnAddToWatchlist(testMovieDetail));
       },
       expect: () => [
-        WatchlistStatusState(false, 'Added to Watchlist'),
+        WatchlistStatusState(true, 'Added to Watchlist'),
       ],
     );
 
