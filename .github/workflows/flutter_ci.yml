@@ -13,7 +13,6 @@ jobs:
       - uses: actions/setup-java@v1
         with:
           java-version: "12.x"
-      - uses: alif338/flutter-expert-submission-alif@v1
         with:
           channel: "stable"
       - run: flutter pub get
