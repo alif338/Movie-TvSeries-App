@@ -2,7 +2,6 @@ import 'package:about/about.dart';
 import 'package:core/core.dart';
 import 'package:ditonton/common_page/search_page.dart';
 import 'package:ditonton/common_page/watchlist_page.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/material.dart';
 import 'package:movies/movies.dart';
 import 'package:tv_series/tv_series.dart';

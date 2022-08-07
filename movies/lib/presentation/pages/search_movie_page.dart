@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movies/presentation/bloc/search_movie/search_bloc.dart';
 import 'package:movies/presentation/widgets/movie_card_list.dart';
-import 'package:provider/provider.dart';
 
 class SearchMoviePage extends StatefulWidget {
   const SearchMoviePage({Key? key}) : super(key: key);
